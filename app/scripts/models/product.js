@@ -14,13 +14,10 @@ define([
         },
 
         defaults: {
-        },
-
-        validate: function(attrs, options) {
-        },
-
-        parse: function(response, options)  {
-            return response;
+            'thumbnail': 'http://placehold.it/32x32',
+            'medium': 'http://placehold.it/300x200',
+            'detail': 'http://placehold.it/600x400',
+            'type': 'equipment'
         }
     });
 
