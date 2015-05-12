@@ -16,10 +16,8 @@ define([
 
             this.collection.each(function (product) {
                 var productView = new ProductView({ model: product });
-                this.$el.append(productView.el);
+                this.$el.append(productView.render().el);
             }, this);
-
-            console.log('ProductsView', this);
 
             return this;
 

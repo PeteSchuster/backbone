@@ -8,10 +8,6 @@ define([
     'use strict';
 
     var ProductsCollection = Backbone.Collection.extend({
-        initialize: function () {
-            console.log('init collection');
-        },
-
         model: ProductsModel
     });
 

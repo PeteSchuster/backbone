@@ -59,17 +59,12 @@ define([
         },
 
         processUsers: function () {
-            console.log('init route');
             var productCollection = this.addSampleData(),
                 productsView;
 
-            console.log('productCollection', productCollection);
-
             productsView = new ProductsView({ collection: productCollection });
 
-            console.log('productsView', productsView.render());
-
-            $(document.body).append(productsView.render().el);
+            $('.container').append(productsView.render().el);
         }
 
     });

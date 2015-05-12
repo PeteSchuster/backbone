@@ -7,12 +7,6 @@ define([
     'use strict';
 
     var ProductModel = Backbone.Model.extend({
-        url: '',
-
-        initialize: function() {
-            console.log('init model');
-        },
-
         defaults: {
             'thumbnail': 'http://placehold.it/32x32',
             'medium': 'http://placehold.it/300x200',
