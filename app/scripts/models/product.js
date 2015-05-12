@@ -10,6 +10,7 @@ define([
         url: '',
 
         initialize: function() {
+            console.log('init model');
         },
 
         defaults: {

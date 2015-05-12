@@ -3,11 +3,15 @@
 define([
     'underscore',
     'backbone',
-    'models/products'
+    'models/product'
 ], function (_, Backbone, ProductsModel) {
     'use strict';
 
     var ProductsCollection = Backbone.Collection.extend({
+        initialize: function () {
+            console.log('init collection');
+        },
+
         model: ProductsModel
     });
 

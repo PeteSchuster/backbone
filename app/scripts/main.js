@@ -2,6 +2,7 @@
 'use strict';
 
 require.config({
+    baseUrl: '/scripts',
     shim: {
         bootstrap: {
             deps: ['jquery'],
@@ -17,7 +18,10 @@ require.config({
 });
 
 require([
-    'backbone'
-], function (Backbone) {
-    Backbone.history.start();
+    'backbone',
+    'routes/products'
+], function (Backbone, ProductsRouter) {
+    var productsRouter = new ProductsRouter();
+
+    Backbone.history.start({ pushState: true });
 });
