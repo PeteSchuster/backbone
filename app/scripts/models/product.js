@@ -11,7 +11,8 @@ define([
             'thumbnail': 'http://placehold.it/32x32',
             'medium': 'http://placehold.it/300x200',
             'detail': 'http://placehold.it/600x400',
-            'type': 'equipment'
+            'type': 'equipment',
+            'price': '5'
         }
     });
 
