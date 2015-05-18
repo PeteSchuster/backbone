@@ -11,5 +11,5 @@ define([
         model: CartModel
     });
 
-    return CartCollection;
+    return new CartCollection();
 });
