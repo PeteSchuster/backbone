@@ -11,5 +11,5 @@ define([
         model: ProductsModel
     });
 
-    return ProductsCollection;
+    return new ProductsCollection();
 });

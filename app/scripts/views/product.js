@@ -26,9 +26,15 @@ define([
         },
 
         cartUpdate: function (event) {
-            var product = event.target.value;
+            var product = event.target.value,
+                cartView;
 
-            cartCollection.add(product);
+            cartCollection.add({ sku: product });
+
+            cartView = new CartView({ collection: cartCollection });
+
+            $('.cart').html(cartView.render().el);
+
         }
     });
 

@@ -4,27 +4,28 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'templates'
-], function ($, _, Backbone, JST) {
+    'templates',
+    'views/cart-item',
+    'collections/products'
+], function ($, _, Backbone, JST, CartItemView, productCollection) {
     'use strict';
 
     var CartView = Backbone.View.extend({
-        template: JST['app/scripts/templates/cart.ejs'],
-
-        tagName: 'div',
-
-        id: '',
-
-        className: '',
-
-        events: {},
-
-        initialize: function () {
-            this.listenTo(this.model, 'change', this.render);
-        },
+        tagName: 'ul',
 
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+
+            this.collection.each(function (cartItem) {
+                var cartProduct = productCollection.where({ sku: cartItem.get('sku') }),
+                    cartItemView;
+
+                cartItemView = new CartItemView({ model: cartProduct[0] });
+
+                this.$el.append(cartItemView.render().el);
+            }, this);
+
+            return this;
+
         }
     });
 

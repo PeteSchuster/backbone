@@ -6,7 +6,7 @@ define([
     'collections/products',
     'views/products',
     'models/product'
-], function ($, Backbone, ProductsCollection, ProductsView, ProductsModel) {
+], function ($, Backbone, productCollection, ProductsView) {
     'use strict';
 
     var ProductsRouter = Backbone.Router.extend({
@@ -16,7 +16,7 @@ define([
 
         addSampleData: function () {
 
-            var sampleProducts = new ProductsCollection([
+            var sampleProducts = [
                 {
                     'sku': '01',
                     'name': 'Standard Box'
@@ -63,14 +63,19 @@ define([
                     'type': 'package',
                     'name': 'HD Platnium'
                 }
-            ]);
+            ];
+
+            _.each(sampleProducts, function (sampleProduct) {
+                productCollection.add(sampleProduct);
+            });
 
             return sampleProducts;
         },
 
         processUsers: function () {
-            var productCollection = this.addSampleData(),
-                productsView;
+            var productsView;
+
+            this.addSampleData();
 
             productsView = new ProductsView({ collection: productCollection });
 
