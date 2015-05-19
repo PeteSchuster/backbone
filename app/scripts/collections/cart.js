@@ -3,13 +3,18 @@
 define([
     'underscore',
     'backbone',
-    'models/cart'
-], function (_, Backbone, CartModel) {
+    'models/cart',
+    'cookie'
+], function (_, Backbone, CartModel, Cookies) {
     'use strict';
 
     var CartCollection = Backbone.Collection.extend({
         model: CartModel
-    });
+    }),
 
-    return new CartCollection();
+    cartCollection = new CartCollection(),
+
+    cartCookie = JSON.parse(Cookies.get('cart'));
+
+    return cartCollection.reset(cartCookie);
 });
