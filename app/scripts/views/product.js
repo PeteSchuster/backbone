@@ -5,9 +5,10 @@ define([
     'underscore',
     'backbone',
     'templates',
+    'cookie',
     'views/cart',
     'collections/cart'
-], function ($, _, Backbone, JST, CartView, cartCollection) {
+], function ($, _, Backbone, JST, Cookies, CartView, cartCollection) {
     'use strict';
 
     var ProductView = Backbone.View.extend({
@@ -30,6 +31,8 @@ define([
                 cartView;
 
             cartCollection.add({ sku: product });
+
+            Cookies.set('cart', JSON.stringify(cartCollection));
 
             cartView = new CartView({ collection: cartCollection });
 
