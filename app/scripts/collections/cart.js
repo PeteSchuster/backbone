@@ -14,7 +14,11 @@ define([
 
     cartCollection = new CartCollection(),
 
-    cartCookie = JSON.parse(Cookies.get('cart'));
+    cartCookie = Cookies.get('cart');
 
-    return cartCollection.reset(cartCookie);
+    if (cartCookie) {
+        cartCollection.reset(JSON.parse(cartCookie));
+    }
+
+    return cartCollection;
 });
